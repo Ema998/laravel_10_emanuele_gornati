@@ -7,7 +7,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Gameland</a>
+        <a class="navbar-brand" href="{{ route('homepage') }}">Gameland</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,9 +19,32 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('prodotti') }}">Prodotti</a>
                 </li>
+                <!-- @guest -->
+                @if (!Auth::user())
+                <li class="nav-item">
+                    <a class="nav-link outline" href="{{ route('register') }}">Registrati</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link outline" href="{{ route('login') }}">Accedi</a>
+                </li>
+                @endif
+                <!-- @endguest -->
+                <!-- @auth -->
+                @if(Auth::user())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('aggiungiProdotto') }}">Aggiungi prodotto</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link outline" href="#">Benvenuto {{ Auth::user()->name }}</a>
+                </li>
+                <li class="nav-item">
+                    <form class="nav-link" action="{{ route('logout') }}" method="POST" >
+                        @crsf
+                        <button class="nav-link btn btn-outline my-2 my-sm-0" type="submit">Logout</button>
+                    </form>
+                </li>
+                @endif
+                <!-- @endauth -->
             </ul>
         </div>
     </nav>
