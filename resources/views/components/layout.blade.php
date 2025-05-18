@@ -36,12 +36,12 @@
                     <a class="nav-link" href="{{ route('aggiungiProdotto') }}">Aggiungi prodotto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link outline" href="#">Benvenuto {{ Auth::user()->name }}</a>
+                    Benvenuto {{ Auth::user()->name }}
                 </li>
                 <li class="nav-item">
-                    <form class="nav-link" action="{{ route('logout') }}" method="POST" >
-                        @crsf
-                        <button class="nav-link btn btn-outline my-2 my-sm-0" type="submit">Logout</button>
+                   <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout').submit();" class="nav-item">Logout </a>
+                    <form action="{{route('logout')}}" method="POST" style="display: none;" id="logout">
+                        @csrf
                     </form>
                 </li>
                 @endif
