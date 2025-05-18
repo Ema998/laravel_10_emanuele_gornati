@@ -2,6 +2,7 @@
     <x-header>
         <h1 class="text-center">ACCEDI</h1>
     </x-header>
+    <x-errors></x-errors>
     <div class="container">
         <div class="row mt-5 justify-content-center align-items-center">
             <div class="col-12 col-md-6 bg-body-secondary p-5 rounded">
