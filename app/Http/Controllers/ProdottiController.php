@@ -38,6 +38,6 @@ class ProdottiController extends Controller
 
     public function prodottiList(){
         $prodotti = Game::all();
-        return view('prodotto.prodotti', compact('prodotti'));
+        return view('prodotti', compact('prodotti'));
     }
 }
