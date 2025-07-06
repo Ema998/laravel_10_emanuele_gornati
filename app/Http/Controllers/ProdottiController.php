@@ -8,12 +8,6 @@ use App\Http\Requests\ProdottiRequest;
 
 class ProdottiController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth')->except('homepage');
-    }
-
     public function store(ProdottiRequest $request)
     {
         $nome = $request->input('nome');
